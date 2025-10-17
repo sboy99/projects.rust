@@ -18,27 +18,10 @@ pub enum Commands {
 impl CliArgs {
     pub fn exec(&self) -> anyhow::Result<()> {
         match &self.command {
-            Commands::Add { title } => {
-                // Add logic here
-                println!("Adding task: {}", title);
-                Ok(())
-            }
-            Commands::List => {
-                // Add logic here
-                println!("Listing tasks");
-                Ok(())
-            }
-            Commands::Remove { id } => {
-                // Add logic here
-                println!("Removing task with ID: {}", id);
-                Ok(())
-            }
-            Commands::Complete { id } => {
-                // Add logic here
-                println!("Completing task with ID: {}", id);
-                println!("Task completed");
-                Ok(())
-            }
+            Commands::Add { title } => crate::cmds::add::exec(title),
+            Commands::List => crate::cmds::list::exec(),
+            Commands::Remove { id } => crate::cmds::remove::exec(id),
+            Commands::Complete { id } => crate::cmds::complete::exec(id),
         }
     }
 }

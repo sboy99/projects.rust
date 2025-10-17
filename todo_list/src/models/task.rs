@@ -8,11 +8,15 @@ pub struct Task {
 }
 
 impl Task {
-    pub fn new(id: u32, title: String) -> Self {
+    pub fn new(id: &u32, title: &String) -> Self {
         Task {
-            id,
-            title,
+            id: *id,
+            title: title.clone(),
             completed: false,
         }
+    }
+
+    pub fn complete(&mut self) {
+        self.completed = true;
     }
 }

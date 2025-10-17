@@ -1,4 +1,5 @@
 mod cli;
+mod cmds;
 mod models;
 mod storage;
 
