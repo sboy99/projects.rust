@@ -6,5 +6,5 @@
 [x] create tasks.md
 [x] add cli args using clap crate
 [x] declare models
-[ ] add storage service
+[x] add storage service
 [ ] enable error handling
