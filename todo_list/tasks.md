@@ -11,4 +11,4 @@
 - Day 2
 [x] implement add, remove, list, complete functionalities
 [x] add logs to each function
-[ ] write docs in README.md
+[x] write docs in README.md
