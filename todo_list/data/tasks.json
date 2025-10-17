@@ -8,5 +8,15 @@
     "id": 2,
     "title": "Eat fish",
     "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Start a new project",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "title": "Feed cat",
+    "completed": false
   }
 ]

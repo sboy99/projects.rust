@@ -8,10 +8,10 @@ pub struct Task {
 }
 
 impl Task {
-    pub fn new(id: &u32, title: &String) -> Self {
+    pub fn new(id: u32, title: String) -> Self {
         Task {
-            id: *id,
-            title: title.clone(),
+            id,
+            title,
             completed: false,
         }
     }
