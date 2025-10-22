@@ -1,3 +1,4 @@
+use crate::organizer::organize_files;
 use anyhow::Result;
 use clap::{Parser, ValueEnum};
 
@@ -24,6 +25,7 @@ pub enum SortMode {
 
 impl CliArgs {
     pub fn exec(&self) -> Result<()> {
+        organize_files(&self.path, self.by, self.dry_run)?;
         Ok(())
     }
 }

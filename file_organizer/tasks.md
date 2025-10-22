@@ -4,8 +4,8 @@
 
 - [x] Init project and setup folder structure
 - [x] Setup cli args
-- [ ] Complete organizer module
 
 `Day 2`
 
+- [x] Complete organizer module
 - [ ] Complete sorter module
