@@ -8,4 +8,4 @@
 `Day 2`
 
 - [x] Complete organizer module
-- [ ] Complete sorter module
+- [x] Complete sorter module
