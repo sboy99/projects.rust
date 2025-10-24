@@ -2,6 +2,12 @@ mod cli;
 mod converters;
 mod interactive;
 
-fn main() {
-    println!("Hello, world!");
+use crate::cli::CliArgs;
+use anyhow::Result;
+use clap::Parser;
+
+fn main() -> Result<()> {
+    let args = CliArgs::parse();
+    args.execute()?;
+    Ok(())
 }
