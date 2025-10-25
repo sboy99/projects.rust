@@ -44,18 +44,18 @@ impl CliArgs {
         match &self.command {
             Command::Temperature { from, to, value } => {
                 let result = converters::convert_temperature(from, to, value)?;
-                println!("Result: {}", result);
+                println!("{} {} = {} {}", value, from, result, to);
             }
             Command::Length { from, to, value } => {
                 let result = converters::convert_length(from, to, value)?;
-                println!("Result: {}", result);
+                println!("{} {} = {} {}", value, from, result, to);
             }
             Command::Weight { from, to, value } => {
                 let result = converters::convert_weight(from, to, value)?;
-                println!("Result: {}", result);
+                println!("{} {} = {} {}", value, from, result, to);
             }
             Command::Interactive => {
-                interactive::run();
+                interactive::run()?;
             }
         }
         Ok(())
