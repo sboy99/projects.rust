@@ -1,14 +1,16 @@
 mod cli;
+mod cmds;
 mod http;
 mod printer;
+mod utils;
 
 use anyhow::Result;
-use http::HttpClient;
+use clap::Parser;
+use cli::CliArgs;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let http_client = HttpClient::new(String::from("https://jsonplaceholder.typicode.com"), None);
-    let response = http_client.get("/posts/1", None).await?;
-    println!("Response: {}", response.text().await?);
+    let cli_args = CliArgs::parse();
+    cli_args.run().await?;
     Ok(())
 }

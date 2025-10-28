@@ -20,9 +20,10 @@ impl HttpClient {
     pub async fn get(
         &self,
         path: &str,
+        headers: Option<HashMap<String, String>>,
         params: Option<HashMap<String, String>>,
     ) -> Result<Response> {
-        let request = self._build_request(Method::GET, path, params, None)?;
+        let request = self._build_request(Method::GET, path, headers, params, None)?;
         let response = request.send().await?;
         Ok(response)
     }
@@ -31,8 +32,9 @@ impl HttpClient {
         &self,
         path: &str,
         body: Option<HashMap<String, String>>,
+        headers: Option<HashMap<String, String>>,
     ) -> Result<Response> {
-        let request = self._build_request(Method::POST, path, None, body)?;
+        let request = self._build_request(Method::POST, path, headers, None, body)?;
         let response = request.send().await?;
         Ok(response)
     }
@@ -41,11 +43,20 @@ impl HttpClient {
         &self,
         method: Method,
         path: &str,
+        headers: Option<HashMap<String, String>>,
         params: Option<HashMap<String, String>>,
         body: Option<HashMap<String, String>>,
     ) -> Result<RequestBuilder> {
         let url = self._build_url(path)?;
         let mut request = self.client.request(method, url);
+        request = request
+            .header("Content-Type", "application/json")
+            .header("Accept", "application/json");
+        if let Some(headers) = headers {
+            for (key, value) in headers {
+                request = request.header(key, value);
+            }
+        }
         if let Some(api_key) = &self.api_key {
             request = request.header("Authorization", format!("Bearer {}", api_key));
         }
