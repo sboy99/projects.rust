@@ -39,6 +39,27 @@ impl HttpClient {
         Ok(response)
     }
 
+    pub async fn patch(
+        &self,
+        path: &str,
+        body: Option<HashMap<String, String>>,
+        headers: Option<HashMap<String, String>>,
+    ) -> Result<Response> {
+        let request = self._build_request(Method::PATCH, path, headers, None, body)?;
+        let response = request.send().await?;
+        Ok(response)
+    }
+
+    pub async fn delete(
+        &self,
+        path: &str,
+        headers: Option<HashMap<String, String>>,
+    ) -> Result<Response> {
+        let request = self._build_request(Method::DELETE, path, headers, None, None)?;
+        let response = request.send().await?;
+        Ok(response)
+    }
+
     fn _build_request(
         &self,
         method: Method,

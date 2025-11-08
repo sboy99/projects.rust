@@ -12,9 +12,9 @@
 
 `Day 3`
 
-- [ ] Add POST command
-- [ ] Add PATCH command
-- [ ] Add DELETE command
+- [x] Add POST command
+- [x] Add PATCH command
+- [x] Add DELETE command
 
 `Day 4`
 
